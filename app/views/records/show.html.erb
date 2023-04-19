@@ -1,0 +1,23 @@
+<h1> Record</h1>
+<table>
+  <thead>
+  <tr>
+    <th>Artist</th>
+    <th>Album</th>
+    <th>Genre</th>
+    <th>Variant</th>
+    <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><%= @record.artist %></td>
+    <td><%= @record.album %></td>
+    <td><%= @record.genre %></td>
+    <td><%= @record.variant %></td>
+    <td><%= @record.description %></td>
+  </tr>
+  </tbody>
+</table>
+
+<%= link_to "return to all records", records_path %>

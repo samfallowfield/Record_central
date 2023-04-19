@@ -1,0 +1,30 @@
+<h1> All record Listings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Artist</th>
+      <th>Album</th>
+      <th>Genre</th>
+      <th>Variant</th>
+      <th>Description</th>
+      <th colspan="2">Actions</th>
+    </tr>
+  </thead>
+
+
+  <tbody>
+    <% @records.each do |record| %>
+      <tr>
+        <td><%= record.artist %></td>
+        <td><%= record.album %></td>
+        <td><%= record.genre %></td>
+        <td><%= record.variant %></td>
+        <td><%= record.description %></td>
+        <td><%= link_to "Show", record_path(record) %></td>
+        <td><%= link_to "Edit listing", edit_record_path(record) %></td>
+        <td><%= link_to "Remove listing", record_path(record), data:{turbo_method: :delete, "turbo-confirm": "are you sure?"} %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
