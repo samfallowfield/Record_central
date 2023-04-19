@@ -30,9 +30,9 @@ class RecordsController < ApplicationController
   def update
     if @record.update(record_params)
       flash[:notice] = "Listing updated successfully!"
-      redirect_to records_path
+      redirect_to edit_record_path
     else
-      render :new, status: :unprocessable_entity
+      render :edit, status: :unprocessable_entity
     end
   end
 
