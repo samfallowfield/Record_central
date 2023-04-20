@@ -1,66 +1,20 @@
-<h1> All record Listings</h1>
+<h1 class="text-center mt-5"> All record Listings</h1>
 
-<!--<table>-->
-<!--  <thead>-->
-<!--    <tr>-->
-<!--      <th>Artist</th>-->
-<!--      <th>Album</th>-->
-<!--      <th>Genre</th>-->
-<!--      <th>Variant</th>-->
-<!--      <th>Description</th>-->
-<!--      <th colspan="2">Actions</th>-->
-<!--    </tr>-->
-<!--  </thead>-->
-
-
-<!--  <tbody>-->
-    <%# @records.each do |record| %>
-<!--      <tr>-->
-<!--        <td><%#= record.artist %></td>-->
-<!--        <td><%#= record.album %></td>-->
-<!--        <td><%#= record.genre %></td>-->
-<!--        <td><%#= record.variant %></td>-->
-<!--        <td><%#= record.description %></td>-->
-<!--        <td><%#= link_to "Show", record_path(record) %></td>-->
-<!--        <td><%#= link_to "Edit listing", edit_record_path(record) %></td>-->
-<!--        <td><%#= link_to "Remove listing", record_path(record), data:{turbo_method: :delete, "turbo-confirm": "are you sure?"} %></td>-->
-<!--      </tr>-->
-    <%# end %>
-<!--  </tbody>-->
-<!--</table>-->
-
-<!--<div class="container">-->
-<!--    <div class="row">-->
-      <%# @records.each do |record| %>
-<!--      <div class="col-sm-6 mb-3 mt-4 grid-flex">-->
-<!--        <div class="card">-->
-<!--          <div class="card-body">-->
-<!--            <h5 class="card-title"><%#= record.artist %></h5>-->
-<!--            <p class="card-text"><%#= record.album %></p>-->
-<!--            <p class="card-text"><%#= record.genre %></p>-->
-<!--            <p class="card-text"><%#= record.variant %></p>-->
-<!--            <p class="card-text"><%#= record.description %></p>-->
-<!--            <a href="#" class="btn btn-primary">Go somewhere</a>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-      <%# end %>
-<!--    </div>-->
-<!--</div>-->
-
-<div class="container">
+<div class="container mt-5">
   <div class="row">
     <% @records.each do |record| %>
-      <div class="col-sm-6 mb-3 mt-4 grid-flex">
+      <div class="col-sm-3 mb-3 mt-4 grid-flex">
         <div class="card" style="width: 18rem;">
           <%=image_tag src='placeholder.jpg' %>
           <div class="card-body">
-            <h5 class="card-title"><%= record.artist %></h5>
+            <h5 class="card-title fw-bold" id="artist_title"><%= record.artist %></h5>
             <p class="card-text"><%= record.album %></p>
             <p class="card-text"><%= record.genre %></p>
             <p class="card-text"><%= record.variant %></p>
             <p class="card-text"><%= record.description %></p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <%= link_to "Details", record_path(record), class:"btn btn-primary" %>
+            <%= link_to "Edit your listing", edit_record_path(record), class:"btn btn-info " %>
+            <%= link_to "Remove you listing", record_path(record), class:"btn btn-danger mt-2", data:{turbo_method: :delete, "turbo-confirm": "Are you sure?"} %>
           </div>
         </div>
       </div>

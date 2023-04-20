@@ -17,7 +17,12 @@
 @import "bootstrap";
 
 .navbar {
-  background-color: black;
+  //background-color: black;
+  background-image: asset_url(placeholder);
+  background-size: cover;
+  //background-position: center;
+  //background-position: bottom;
+  background-position: top;
 }
 
 .nav-link {
