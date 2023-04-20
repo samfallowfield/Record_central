@@ -1,4 +1,5 @@
 class Record < ApplicationRecord
+  belongs_to :user
   validates :artist, presence: true, length:{minimum: 1, maximum: 35}
   validates :album, presence: true, length:{minimum: 1, maximum: 35}
   validates :genre, presence: true, length:{minimum: 2, maximum: 15}

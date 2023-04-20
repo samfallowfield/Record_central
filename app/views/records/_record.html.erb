@@ -14,6 +14,7 @@
             <%= link_to "Edit your listing", edit_record_path(record), class:"btn btn-info " %>
             <%= link_to "Remove you listing", record_path(record), class:"btn btn-danger mt-2", data:{turbo_method: :delete, "turbo-confirm": "Are you sure?"} %>
           </div>
+          <small class="text-center text-muted">Listed by <%= record.user.username %></small>
         </div>
       </div>
     <% end %>

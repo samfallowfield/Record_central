@@ -14,6 +14,7 @@ class RecordsController < ApplicationController
 
   def create
     @record = Record.new(record_params)
+    @record.user = User.first
     if @record.save
       flash[:notice] = "Listing created successfully!"
       redirect_to records_path
