@@ -1,23 +1,11 @@
 <h1 class="text-center mt-5"> All record Listings</h1>
 
-<div class="container mt-5">
-  <div class="row">
-    <% @records.each do |record| %>
-      <div class="col-sm-3 mb-3 mt-4 grid-flex">
-        <div class="card" style="width: 18rem;">
-          <%=image_tag src='placeholder.jpg' %>
-          <div class="card-body">
-            <h5 class="card-title fw-bold" id="artist_title"><%= record.artist %></h5>
-            <p class="card-text"><%= record.album %></p>
-            <p class="card-text"><%= record.genre %></p>
-            <p class="card-text"><%= record.variant %></p>
-            <p class="card-text"><%= record.description %></p>
-            <%= link_to "Details", record_path(record), class:"btn btn-primary" %>
-            <%= link_to "Edit your listing", edit_record_path(record), class:"btn btn-info " %>
-            <%= link_to "Remove you listing", record_path(record), class:"btn btn-danger mt-2", data:{turbo_method: :delete, "turbo-confirm": "Are you sure?"} %>
-          </div>
-        </div>
-      </div>
-    <% end %>
-  </div>
+<div class="apple_pagination">
+  <%= will_paginate @records, :container => false %>
+</div>
+
+<%= render 'record' %>
+
+<div class="apple_pagination mb-3">
+  <%= will_paginate @records, :container => false %>
 </div>

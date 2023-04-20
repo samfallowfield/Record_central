@@ -2,16 +2,19 @@
 
 <div class="container">
   <div class="row justify-content-md-center ">
+    <%#=image_tag src='placeholder.jpg' %>
+      <div class='image-container'><%= image_tag "placeholder.jpg", size: 200%></div>
     <div class="col-8 mt-4 ">
       <div class="card text-center shadow mb-5 bg-body-tertiary rounded">
         <div class="card-header font-italic">
 <!--          By <%#= @record.user.username if @record.user %>-->
-              By Sam
-          <%#= link_to gravatar_for(@article.user), user_path(@article.user) %>
+          Listed By Sam
         </div>
         <div class="card-body">
-          <div class="card-text text-start">Artist: <%= @record.artist %></div>
-          <div class="card-text text-start"><%= simple_format(@record.description)%></div>
+          <div class="card-text text-start"><strong>Artist: </strong><%= @record.artist %></div>
+          <div class="card-text text-start"><strong>Genre: </strong><%= @record.genre %> </div>
+          <div class="card-text text-start"><strong>Variant: </strong><%=@record.variant %></div>
+          <div class="card-text text-start"><strong>Description: </strong><%= @record.description%></div>
             <%= link_to 'Edit', edit_record_path(@record), class: "btn btn-outline-info" %>
             <%= link_to 'Delete', record_path(@record),class: "btn btn-outline-danger", data: {turbo_method: :delete, "turbo-confirm": "are you sure?"} %>
         </div>
@@ -20,7 +23,7 @@
             edited <%= time_ago_in_words(@record.updated_at)%> ago</small>
         </div>
       </div>
-      <%= link_to "[ return to all records ]", records_path%>
+      <%= link_to "[ return to all records ]",records_path%>
     </div>
   </div>
 </div>

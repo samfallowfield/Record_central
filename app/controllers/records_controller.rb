@@ -2,11 +2,10 @@ class RecordsController < ApplicationController
   before_action :set_record, only:[:show, :edit, :update, :destroy]
 
   def index
-    @records = Record.all
+    @records = Record.paginate(page: params[:page], per_page: 8)
   end
 
   def show
-    @record = Record.find(params[:id])
   end
 
   def new
@@ -24,7 +23,6 @@ class RecordsController < ApplicationController
   end
 
   def edit
-    @record = Record.find(params[:id])
   end
 
   def update
