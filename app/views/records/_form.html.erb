@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row justify-content-center ">
     <div class="col-10">
-      <%= render 'shared/errors'%>
+      <%= render 'shared/errors', obj: @record%>
 
       <%= form_with(model: @record, class: "shadow p-3 mb-3 mb-5 rounded", id:"form-color", local: true) do |f| %>
         <div class ="input-group mt-3 row">
@@ -46,7 +46,7 @@
       <% end %>
     </div>
     <div class = "mb-3">
-      <%= link_to '[ Cancel and return to records listing ]', records_path, class: "d-flex justify-content-center text-dark text-decoration-none" %>
+      <%= link_to '[ Cancel and return to records listings ]', records_path, class: "d-flex justify-content-center text-dark text-decoration-none" %>
     </div>
   </div>
 </div>
