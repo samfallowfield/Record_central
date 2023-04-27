@@ -1,0 +1,15 @@
+<h1 class="text-center mt-4"><%= @user.username %>'s profile</h1>
+
+<%= gravatar_for @user, size: 200 %>
+
+<h3 class="text-center mt-4">Listings</h3>
+
+<!--<div class="apple_pagination">-->
+  <%#= will_paginate @user, :container => false %>
+<!--</div>-->
+
+<%= render 'records/record' %>
+
+<!--<div class="apple_pagination">-->
+  <%#= will_paginate @user, :container => false %>
+<!--</div>-->
