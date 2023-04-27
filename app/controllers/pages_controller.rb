@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
 
-  def show
-
+  def home
+    redirect_to records_path if logged_in?
   end
 end
