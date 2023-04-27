@@ -10,9 +10,13 @@
             <p class="card-text"><strong>Genre: </strong><%= record.genre %></p>
             <p class="card-text"><strong>Variant: </strong><%= record.variant %></p>
             <p class="card-text"><strong>Description: </strong><%= truncate(record.description, length:20) %></p>
-            <%= link_to "Details", record_path(record), class:"btn btn-primary" %>
-            <%= link_to "Edit", edit_record_path(record), class:"btn btn-info " %>
-            <%= link_to "Remove", record_path(record), class:"btn btn-danger", data:{turbo_method: :delete, "turbo-confirm": "Are you sure?"} %>
+            <div class="container text-center">
+              <%= link_to "Details", record_path(record), class:"btn btn-primary" %>
+              <% if logged_in? && record.user == current_user %>
+                <%= link_to "Edit", edit_record_path(record), class:"btn btn-info " %>
+                <%= link_to "Remove", record_path(record), class:"btn btn-danger", data:{turbo_method: :delete, "turbo-confirm": "Are you sure?"} %>
+              <% end %>
+            </div>
           </div>
           <small class="text-center text-muted mb-2 ">Listed by <%= link_to record.user.username, user_path(record.user) %></small>
         </div>

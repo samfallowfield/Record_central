@@ -15,17 +15,24 @@
           </a>
           <ul class="dropdown-menu">
             <%= link_to "View all listings", records_path, class: "dropdown-item" %>
-            <%= link_to "Create a listing", new_record_path, class: "dropdown-item" %>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <% if logged_in? %>
+              <%= link_to "Create a listing", new_record_path, class: "dropdown-item" %>
+            <% end %>
+<!--            <li><hr class="dropdown-divider"></li>-->
           </ul>
         </li>
         <% if logged_in? %>
-          <li class="nav-item">
-            <%= link_to "Log out", logout_path, class: "nav-link", data: {turbo_method: :delete} %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <%= current_user.username %>
+            </a>
+            <ul class="dropdown-menu">
+              <%= link_to "View your profile", user_path(current_user), class: "dropdown-item" %>
+              <%= link_to "Edit your profile", edit_user_path(current_user), class: "dropdown-item" %>
+            </ul>
           </li>
           <li class="nav-item">
-            <%= link_to current_user.username, user_path(current_user), class: "nav-link"%>
+            <%= link_to "Log out", logout_path, class: "nav-link", data: {turbo_method: :delete} %>
           </li>
         <% else %>
           <li class="nav-item">
