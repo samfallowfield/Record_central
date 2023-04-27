@@ -7,8 +7,7 @@
     <div class="col-8 mt-4 ">
       <div class="card text-center shadow mb-5 bg-body-tertiary rounded">
         <div class="card-header font-italic">
-<!--          By <%#= @record.user.username if @record.user %>-->
-          Listed By Sam
+          Listed by <%= link_to @record.user.username, user_path(@record.user)  %>
         </div>
         <div class="card-body">
           <div class="card-text text-start"><strong>Artist: </strong><%= @record.artist %></div>
@@ -23,7 +22,7 @@
             edited <%= time_ago_in_words(@record.updated_at)%> ago</small>
         </div>
       </div>
-      <%= link_to "[ return to all records ]",records_path%>
+      <%= link_to "[ return to all records ]",records_path, class: "text-center"%>
     </div>
   </div>
 </div>

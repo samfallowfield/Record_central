@@ -2,14 +2,18 @@
 
 <%= gravatar_for @user, size: 200 %>
 
+<div class="text-center mt-4">
+  <%= link_to "Edit your profile", edit_user_path(@user), class: "btn btn-info" %>
+</div>
+
 <h3 class="text-center mt-4">Listings</h3>
 
-<!--<div class="apple_pagination">-->
-  <%#= will_paginate @user, :container => false %>
-<!--</div>-->
+<div class="apple_pagination">
+  <%= will_paginate @records, :container => false %>
+</div>
 
 <%= render 'records/record' %>
 
-<!--<div class="apple_pagination">-->
-  <%#= will_paginate @user, :container => false %>
-<!--</div>-->
+<div class="apple_pagination">
+  <%= will_paginate @records, :container => false %>
+</div>

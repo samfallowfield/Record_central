@@ -9,19 +9,15 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       flash[:notice] = "Welcome to Record Central #{@user.username}"
-      redirect_to records_path
+      redirect_to user_path(@user)
     else
       render 'new', status: :unprocessable_entity
     end
   end
 
   def show
-    @records = @user.records
+    @records = @user.records.paginate(page: params[:page], per_page: 8)
   end
-
-  # def show
-  #   @records = @user.records.paginate(page: params[:page], per_page: 8)
-  # end
 
   def index
     @users = User.all
@@ -32,9 +28,9 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user = User.update(user_params)
+    if User.update(user_params)
       flash[:notice] = "Account updated!"
-      redirect_to root_path
+      redirect_to @user
     else
       render edit, status: :unprocessable_entity
     end
