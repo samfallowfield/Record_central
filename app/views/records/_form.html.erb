@@ -40,6 +40,13 @@
           </div>
         </div>
 
+        <div class ="input-group mt-3 row">
+          <%= f.label :image, class: "col-2 col-form-label text-light" %>
+          <div class ="col-10">
+            <%= f.file_field :image , class: "form-control mt-3 shadow rounded", placeholder: "Upload your record!" %>
+          </div>
+        </div>
+
         <div class= "form-group d-flex mt-3 justify-content-center">
           <%= f.submit class: "btn btn-outline-light btn-lg " %>
         </div>

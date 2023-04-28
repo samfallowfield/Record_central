@@ -2,8 +2,9 @@
 
 <div class="container">
   <div class="row justify-content-md-center ">
-    <%#=image_tag src='placeholder.jpg' %>
-      <div class='image-container'><%= image_tag "placeholder.jpg", size: 200%></div>
+    <div class='image-container'>
+      <%= image_tag @record.image, style: "width: 200px; height: 200px;" rescue image_tag "placeholder.jpg", size: 200%>
+    </div>
     <div class="col-8 mt-4 ">
       <div class="card text-center shadow mb-5 bg-body-tertiary rounded">
         <div class="card-header font-italic">
@@ -26,7 +27,6 @@
             edited <%= time_ago_in_words(@record.updated_at)%> ago</small>
         </div>
       </div>
-      <%= link_to "[ return to all records ]",records_path, class: "text-center"%>
     </div>
   </div>
 </div>

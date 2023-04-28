@@ -2,14 +2,14 @@
   <div class="row">
     <% @records.each do |record| %>
       <div class="col-sm-3 mb-3 mt-4 grid-flex">
-        <div class="card" style="width: 18rem;">
-          <%=image_tag src='placeholder.jpg' %>
+        <div class="card" style="width: 16rem;">
+          <%= image_tag record.image, style: "width: 255px; height: 250px;" rescue image_tag "placeholder.jpg", style: "width: 255px; height: 250px;"%>
           <div class="card-body">
             <h5 class="card-title fw-bold" id="artist_title"><%= record.album.titlecase %></h5>
             <p class="card-text"><strong>Artist: </strong><%= record.artist %></p>
             <p class="card-text"><strong>Genre: </strong><%= record.genre %></p>
             <p class="card-text"><strong>Variant: </strong><%= record.variant %></p>
-            <p class="card-text"><strong>Description: </strong><%= truncate(record.description, length:20) %></p>
+            <p class="card-text"><strong>Description: </strong><%= truncate(record.description, length:15) %></p>
             <div class="container text-center">
               <%= link_to "Details", record_path(record), class:"btn btn-outline-primary" %>
               <% if logged_in? && (record.user == current_user || current_user.admin?) %>
