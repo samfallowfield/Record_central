@@ -1,5 +1,7 @@
 class RecordsController < ApplicationController
   before_action :set_record, only:[:show, :edit, :update, :destroy]
+  before_action :require_user, except:[:index, :show]
+  before_action :require_same_user, only:[:edit, :update, :destroy]
 
   def index
     @records = Record.paginate(page: params[:page], per_page: 8)
@@ -50,4 +52,12 @@ class RecordsController < ApplicationController
   def record_params
     params.require(:record).permit(:artist,:album,:genre,:variant,:description)
   end
+
+  def require_same_user
+    if current_user != @record.user
+      flash[:alert] = " You can only edit your own listings!"
+      redirect_to @record
+    end
+  end
+
 end
