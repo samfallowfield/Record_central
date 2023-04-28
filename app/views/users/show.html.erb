@@ -4,7 +4,7 @@
 
 <div class="text-center mt-4">
   <% if logged_in? && @user == current_user %>
-    <%= link_to "Edit your profile", edit_user_path(@user), class: "btn btn-info" %>
+    <%= link_to "Edit your profile", edit_user_path(@user), class: "btn btn-outline-info" %>
   <% end %>
 </div>
 

@@ -54,7 +54,7 @@ class RecordsController < ApplicationController
   end
 
   def require_same_user
-    if current_user != @record.user
+    if current_user != @record.user && !current_user.admin?
       flash[:alert] = " You can only edit your own listings!"
       redirect_to @record
     end
