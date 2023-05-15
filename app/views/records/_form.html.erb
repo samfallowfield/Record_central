@@ -19,11 +19,12 @@
           </div>
         </div>
 
-        <div class ="input-group mt-3 row">
+        <div class="input-group mt-3 row">
           <%= f.label :genre, class: "col-2 col-form-label text-light" %>
-          <div class ="col-10">
-            <%= f.text_field :genre, class: "form-control mt-3 shadow rounded", placeholder: "Genre" %>
-          </div>
+          <div class="col-10">
+          <%= f.collection_select(:genre_ids, Genre.all, :id, :name,
+              {prompt: "What genres are this record?"}, {multiple: true, size: 3, class: "form-select shadow-rounded"}) %>
+        </div>
         </div>
 
         <div class ="input-group mt-3 row">
@@ -36,7 +37,7 @@
         <div class ="input-group mt-3 row">
           <%= f.label :description, class: "col-2 col-form-label text-light" %>
           <div class ="col-10">
-            <%= f.text_area :description, rows: 10 , class: "form-control mt-3 shadow rounded", placeholder: "Tell us about the record!" %>
+            <%= f.text_area :description, rows: 4 , class: "form-control mt-3 shadow rounded", placeholder: "Tell us about the record!" %>
           </div>
         </div>
 

@@ -1,4 +1,4 @@
-<h2 class="text-center mt-4"> <%= @record.album.titlecase %> </h2>
+<h2 class="text-center mt-4"> <%= @record.album.titleize %> </h2>
 
 <div class="container">
   <div class="row justify-content-md-center ">
@@ -11,10 +11,9 @@
           Listed by <%= link_to @record.user.username, user_path(@record.user)  %>
         </div>
         <div class="card-body">
-          <div class="card-text text-start"><strong>Artist: </strong><%= @record.artist %></div>
-          <div class="card-text text-start"><strong>Genre: </strong><%= @record.genre %> </div>
-          <div class="card-text text-start"><strong>Variant: </strong><%=@record.variant %></div>
-          <div class="card-text text-start"><strong>Description: </strong><%= @record.description%></div>
+          <div class="card-text text-start"><strong>Artist: </strong><%= @record.artist.titleize %></div>
+          <div class="card-text text-start"><strong>Variant: </strong><%=@record.variant.titleize %></div>
+          <div class="card-text text-start"><strong>Description: </strong><%= @record.description.capitalize%></div>
           <div class="container mt-3">
             <% if logged_in? && (@record.user == current_user || current_user.admin?) %>
               <%= link_to 'Edit', edit_record_path(@record), class: "btn btn-outline-info" %>

@@ -1,0 +1,22 @@
+<h1 class="text-center mt-4"> <strong><%= @genre.name %></strong></h1>
+
+<% if logged_in? && current_user.admin? %>
+  <div class="text-center mt-4">
+    <%= link_to "Edit genre name", edit_genre_path(@genre), class: "btn btn-outline-success" %>
+  </div>
+<% end %>
+
+
+<div class="apple_pagination">
+  <%= will_paginate @records, :container => false %>
+</div>
+
+<%= render 'records/record' %>
+
+<div class = "mb-3">
+  <%= link_to "[cancel and return to genres listings]", genres_path, class: "mt-3 d-flex justify-content-center text-dark text-decoration-none" %>
+</div>
+
+<div class="apple_pagination mb-4 ">
+  <%= will_paginate @records, :container => false %>
+</div>

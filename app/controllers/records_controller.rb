@@ -50,7 +50,7 @@ class RecordsController < ApplicationController
   end
 
   def record_params
-    params.require(:record).permit(:artist,:album,:genre,:variant,:description, :image)
+    params.require(:record).permit(:artist,:album,:variant,:description,:image, genre_ids: [])
   end
 
   def require_same_user
