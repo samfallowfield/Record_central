@@ -1,24 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+To run the app through your terminal 
+- Rails s
 
-Things you may want to cover:
+To run the app through Docker
+- docker run -it -p 3000:3000 record_central
 
-* Ruby version
+* Ruby version 3.2.0
 
-* System dependencies
+Application for listing various users record collections.
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Accounts must be made in order to use the applications features.
