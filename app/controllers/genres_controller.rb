@@ -42,7 +42,7 @@ class GenresController < ApplicationController
   private
 
   def set_genre
-    @genre = Genre.find(params[:id])
+    @genre = Genre.friendly.find(params[:id])
   end
 
   def genre_params

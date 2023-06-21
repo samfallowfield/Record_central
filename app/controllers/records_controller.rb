@@ -39,14 +39,14 @@ class RecordsController < ApplicationController
 
   def destroy
     @record.destroy
-    redirect_to records_path
+    redirect_to records_path, status: :see_other
   end
 
 
   private
 
   def set_record
-    @record = Record.find(params[:id])
+    @record = Record.friendly.find(params[:id])
   end
 
   def record_params
